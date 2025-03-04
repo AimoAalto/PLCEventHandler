@@ -1,0 +1,40 @@
+{
+  "RootFile": "Root.txt",
+  "RootDirectory": "C:\\Orfer\\Events\\",
+  "Children": {
+    "0": {
+      "FileName": "zero.txt",
+      "FileDirectory": "0",
+      "Children": {}
+    },
+    "9999": {
+      "FileName": "9999.txt",
+      "FileDirectory": "9999",
+      "Children": {
+        "1": {
+          "FileName": "A-1.txt",
+          "FileDirectory": "A1",
+          "Children": {
+            "1": {
+              "FileName": "MO-1.txt",
+              "FileDirectory": "MO1",
+              "Children": {
+                "1": {
+                  "FileName": "F-1.txt",
+                  "FileDirectory": "F1",
+                  "Children": {
+                    "1": {
+                      "FileName": "D-1.txt",
+                      "FileDirectory": "D1",
+                      "Children": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

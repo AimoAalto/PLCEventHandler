@@ -1,0 +1,75 @@
+﻿<Window x:Class="S7TcpMessageReceiver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S7TcpMessageReceiver"
+        mc:Ignorable="d"
+        Title="S7 Tcp listener / Mockup" Height="450" Width="800">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="36" />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="80" />
+				<ColumnDefinition Width="50" />
+				<ColumnDefinition Width="120" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Label Content="Listener Port:" />
+			<TextBox Grid.Column="1" Margin="2" Text="{Binding Path=ListenerPort}" />
+			<!--Label Content="Remote Port:" Grid.Row="1" Grid.Column="0" /-->
+			<!--TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding Path=RemotePort}" /-->
+			<Ellipse Grid.Column="2" Fill="{Binding ListenerState}" Stroke="Black"  Margin="8" Width="20" Height="20" />
+			<Button Grid.Column="3" Margin="2" Content="{Binding Path=TcpCommandText}" Click="Click_TcpCommand" />
+			<!--Button Grid.Row="1" Margin="2" Grid.Column="3" Content="Testi" Click="Click_TcpTestSend" /-->
+            <CheckBox Grid.Row="0" Grid.Column="4" Content="timestamp in msg" VerticalAlignment="Center" Margin="20,2,2,2" IsChecked="{Binding Path=TimestampInMsg}" />
+            <Button Grid.Column="5" Margin="2" Content="List to Text" Click="Click_ListToText" />
+            <Button Grid.Column="6" Margin="2" Content="Clear List" Click="Click_ClearList" />
+        </Grid>
+
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="35" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Label Content="Last data:" />
+			<ListView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Path=LastData}" Margin="2" BorderBrush="{x:Null}" />
+		</Grid>
+
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="35" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Label Content="Data:" />
+            <Button Content="Update" Width="120" Margin="100,2,2,2" HorizontalAlignment="Left" Click="UpdateTree_Click" />
+            <TextBox Grid.Column="0" Grid.Row="1" Margin="2" Text="{Binding Path=TreeData, Mode=OneWay}" AcceptsReturn="True" />
+		</Grid>
+
+		<GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="5" Background="Black" />
+	</Grid>
+</Window>
