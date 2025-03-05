@@ -14,6 +14,8 @@ Example :
   "EventHandler_ListenerPort": 0
 }
 
+**************************************************************************************************
+
 Data structure
 Machine - AutoArea - Module - Function - Device - Identification
 
@@ -27,6 +29,10 @@ directory name is taken from value on each level
       [1]
         [1]
           [1]
+
+
+**************************************************************************************************
+
 
 Format directory names
 configuration file : C:\Lavaus\Asetukset\EventConfig.json
@@ -71,3 +77,8 @@ configuration file : C:\Lavaus\Asetukset\EventConfig.json
     }
   }
 }
+
+**************************************************************************************************
+
+log file cleanup 
+forfiles /p "c:\Orfer\Events" /s /m *.txt /d -120 /c "cmd /c del @path"
